@@ -1,13 +1,484 @@
-\section{Meine Arbeit}
+\section{My Work}
 
 \begin{frame}
-	\frametitle{Abschaffung der Schranken}
-	\begin{itemize}
-		\item A
-		\item B
-		\item C
-		\item D
-		\item E
-		\item F
-	\end{itemize}
+	\frametitle{Tool Comparison: Data Reduction}
+\begin{figure}[H]
+\subfigure[Dimensionality Reduction]
+{
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Supports Analytical Functions
+         \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=yellow, bottom color=yellow, left color=blue!50,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=qlikgreen, right color=qlikgreen, bottom color=qlikgreen, left color=qlikgreen,
+        draw]  at (axis cs: 4,1) {}; %QS, Power BI, Tableau
+        \end{axis}
+ 
+    \end{tikzpicture}
+}    
+\subfigure[Integration of Analytical program]
+{  
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Integration with analytical program
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=yellow, bottom color=yellow, left color=blue!50,
+        draw]  at (axis cs: 3,2) {}; %d3.js, Tableau, Power BI
+        \node[rectangle with four colors, top color=qlikgreen, right color=qlikgreen, bottom color=qlikgreen, left color=qlikgreen,
+        draw]  at (axis cs: 0,0) {}; %QS
+        \end{axis}
+                       \begin{customlegend}[
+            legend entries={ % <= in the following there are the entries
+                d3.js,
+                Power BI,
+                QS,
+                Tableau
+            },
+            legend style={at={(14.5, 3.5)},font=\footnotesize}] % <= to define position and font legend
+            % the following are the "images" and numbers in the legend
+            \addlegendimage{mark=*,d3orange,opacity=1}
+            \addlegendimage{mark=*,yellow,opacity=0.5}
+            \addlegendimage{mark=*,qlikgreen,opacity=1}
+            \addlegendimage{mark=*,blue,opacity=0.5}
+        \end{customlegend}
+    \end{tikzpicture}
+}
+\caption{TCS regarding Horizontal Data Reduction} \label{TCShorizontal}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tool Comparison: Data Reduction}
+    %%%%%%%%%%% Vertical Data Reduction
+    \begin{columns}[t]
+\column{.5\textwidth}
+\centering
+ \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Sampling: Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Sampling
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=yellow, bottom color=blue!50, left color=applegreen,
+        draw]  at (axis cs: 3,2) {}; %d3.js, Power BI, Tableau, QS
+        \node[rectangle with four colors, top color=yellow, right color=yellow, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}\
+\begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Filtering: Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Filtering
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 3,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 3,2) {}; %d3.js, Power BI
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=applegreen, left color=applegreen,
+        draw]  at (axis cs: 0,0) {}; %QS
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 1,1) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+\column{.5\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Aggregation: Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Aggregation
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=applegreen, left color=applegreen,
+        draw]  at (axis cs: 4,2) {}; %QS
+        \node[rectangle with four colors, top color=yellow, right color=yellow, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 1,2) {}; %Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}\
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Abstraction: Programming-Skills},ylabel={Completeness}
+        ]
+        % (3) Abstraction
+         \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+      \node[rectangle with four colors, top color=applegreen, right color=blue!50, bottom color=yellow, left color=white,
+        draw]  at (axis cs: 0,0) {}; %QS, Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tool Comparison: Visualization Techniques}
+	\begin{columns}[t]
+	\column{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Advanced Visualization Techniques: Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Offers advanced techniques
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+        \end{tikzpicture} \
+        %
+        \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Aggregation Marker: Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Aggregation Markers
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=applegreen, left color=applegreen,
+        draw]  at (axis cs: 1,1) {SDC}; %QS
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+    \column{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Multi-Resolution: Programming-Skills},ylabel={Completeness}
+        ]
+        % (3) Multi-Resolution Metaphor
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow!50, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+	\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Interaction Techniques %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Tool Comparison: Interaction Techniques}
+	\begin{columns}[t]
+    \column{.5\textwidth}
+    \centering	
+	\begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Filter: Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Filter
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+       \node[rectangle with four colors, top color=applegreen, right color=blue!50, bottom color=yellow, left color=white,
+        draw]  at (axis cs: 1.5,2) {}; %QS, Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}\
+    %
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Zoom: Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Zoom
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+       \node[rectangle with four colors, top color=applegreen, right color=blue!50, bottom color=yellow, left color=white,
+        draw]  at (axis cs: 1,2) {}; %QS, Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}    
+	\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Distortion Techniques %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Tool Comparison: Interaction Techniques}
+	\begin{columns}[t]
+    \column{.5\textwidth}
+    \centering	
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Fish-Eye: Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Graphical Fish-Eye
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+       \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}\
+    %
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Bifocal: Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Bifocal-Display
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+    \column{.5\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Perpective Wall: Programming-Skills},ylabel={Completeness}
+        ]
+        % (3) Perspective Wall
+         \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 4,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}    
+	\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Navigation Techniques %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Tool Comparison: Interaction Techniques}
+	\begin{columns}[t]
+    \column{.5\textwidth}
+    \centering	
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Programming-Skills},ylabel={Completeness}
+        ]
+        % (1) Brushing \& Linking
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+       \node[rectangle with four colors, top color=applegreen, right color=blue!50, bottom color=yellow, left color=white,
+        draw]  at (axis cs: 1,2) {}; %QS, Power BI, Tableau
+        \end{axis}
+    \end{tikzpicture}\
+    %
+    \begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Programming-Skills},ylabel={Completeness}
+        ]
+        % (2) Bifocal-Display
+        \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=applegreen, left color=applegreen,
+        draw]  at (axis cs: 1,2) {}; %QS
+        \node[rectangle with four colors, top color=yellow, right color=yellow, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 1,1) {}; %Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+    \column{.5\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.55]
+        \begin{axis}[
+        axis y line     = left,
+        axis x line     = bottom,
+        grid,
+        grid style = {color=gray!50, dotted},
+        width = 10cm, 
+        height = 5cm,
+        xticklabels={,,1,2,3,4},
+        yticklabels={,0,1,2},
+        xmin       = -0.1, domain = 0:4, xmax = 4.5,
+        ymin       = -0.1, domain = 0:2, ymax = 2.5,
+        xlabel={Programming-Skills},ylabel={Completeness}
+        ]
+        % (3) Search
+         \addplot [] coordinates{};
+        \node[rectangle with four colors, top color=d3orange, right color=d3orange, bottom color=d3orange, left color=d3orange,
+        draw]  at (axis cs: 3,2) {}; %d3.js
+        \node[rectangle with four colors, top color=applegreen, right color=applegreen, bottom color=yellow, left color=yellow,
+        draw]  at (axis cs: 1,2) {}; %QS, Power BI
+        \node[rectangle with four colors, top color=blue!50, right color=blue!50, bottom color=blue!50, left color=blue!50,
+        draw]  at (axis cs: 0,0) {}; %Tableau
+        \end{axis}
+    \end{tikzpicture}
+	\end{columns}
 \end{frame}

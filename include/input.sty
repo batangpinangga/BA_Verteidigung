@@ -1,0 +1,151 @@
+% Graphics
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\RequirePackage{pgfplots}
+% Subfigure
+\RequirePackage{subfigure}
+\RequirePackage{subfig}
+% Caption
+
+% ---------------------------------
+
+\pgfdeclareshape{rectangle with four colors}
+{
+    % This bit from \pgflibarayshapes.code.tex
+    \inheritsavedanchors[from=rectangle]
+    \inheritanchorborder[from=rectangle]
+    \inheritanchor[from=rectangle]{north}
+    \inheritanchor[from=rectangle]{north west}
+    \inheritanchor[from=rectangle]{north east}
+    \inheritanchor[from=rectangle]{center}
+    \inheritanchor[from=rectangle]{west}
+    \inheritanchor[from=rectangle]{east}
+    \inheritanchor[from=rectangle]{mid}
+    \inheritanchor[from=rectangle]{mid west}
+    \inheritanchor[from=rectangle]{mid east}
+    \inheritanchor[from=rectangle]{base}
+    \inheritanchor[from=rectangle]{base west}
+    \inheritanchor[from=rectangle]{base east}
+    \inheritanchor[from=rectangle]{south}
+    \inheritanchor[from=rectangle]{south west}
+    \inheritanchor[from=rectangle]{south east}
+
+    \inheritbackgroundpath[from=rectangle]
+    \inheritbeforebackgroundpath[from=rectangle]
+    \inheritbehindforegroundpath[from=rectangle]
+    \inheritforegroundpath[from=rectangle]
+    \inheritbeforeforegroundpath[from=rectangle]
+
+  % Now do the background filling.
+    \behindbackgroundpath{%
+        % \southwest and \northeast defined by rectangle, but
+        % (somewhat annoyingly) not \southeast and \northwest
+        % so use this workaround.
+        \pgfextractx{\pgf@xa}{\southwest}%
+        \pgfextracty{\pgf@ya}{\southwest}%
+        \pgfextractx{\pgf@xb}{\northeast}%
+        \pgfextracty{\pgf@yb}{\northeast}%
+           
+            \def\pgf@point@a{\northeast}%
+            \def\pgf@point@b{\pgfpoint{\pgf@xb}{\pgf@ya}}%
+            \def\pgf@point@c{\southwest}%
+            \def\pgf@point@d{\pgfpoint{\pgf@xa}{\pgf@yb}}%
+            \def\pgf@point@m{\pgfpoint{\pgf@xa+0.5*(\pgf@xb-\pgf@xa)}{\pgf@ya+0.5*(\pgf@yb-\pgf@ya)}}
+            
+        \pgfpathmoveto{\pgf@point@a}%
+        \pgfpathlineto{\pgf@point@b}%
+        \pgfpathlineto{\pgf@point@m}%
+        \pgfpathclose
+        \color{\pgf@right@color}%
+        \pgfusepath{fill}%
+
+
+        \pgfpathmoveto{\pgf@point@m}%
+        \pgfpathlineto{\pgf@point@b}%
+        \pgfpathlineto{\pgf@point@c}%
+        \pgfpathclose
+        \color{\pgf@bottom@color}%
+        \pgfusepath{fill}%
+        
+        
+        \pgfpathmoveto{\pgf@point@c}%
+        \pgfpathlineto{\pgf@point@m}%
+        \pgfpathlineto{\pgf@point@d}%
+        \pgfpathclose
+        \color{\pgf@left@color}%
+        \pgfusepath{fill}%
+        
+        \pgfpathmoveto{\pgf@point@d}%
+        \pgfpathlineto{\pgf@point@m}%
+        \pgfpathlineto{\pgf@point@a}%
+        \pgfpathclose
+        \color{\pgf@top@color}%
+        \pgfusepath{fill}%
+        
+    }
+}
+
+\def\pgf@top@color{yellow!50}
+\def\pgf@right@color{red!50}
+\def\pgf@bottom@color{green!50}
+\def\pgf@left@color{blue!50}
+
+% Use these with PGF
+\def\pgfsetdiagonaltopcolor#1{\def\pgf@top@color{#1}}%
+\def\pgfsetdiagonalrightcolor#1{\def\pgf@right@color{#1}}%
+\def\pgfsetdiagonalbottomcolor#1{\def\pgf@bottom@color{#1}}%
+\def\pgfsetdiagonalleftcolor#1{\def\pgf@left@color{#1}}%
+
+
+% Use these with TikZ
+\tikzoption{top color}{\pgfsetdiagonaltopcolor{#1}}
+\tikzoption{right color}{\pgfsetdiagonalrightcolor{#1}}
+\tikzoption{bottom color}{\pgfsetdiagonalbottomcolor{#1}}
+\tikzoption{left color}{\pgfsetdiagonalleftcolor{#1}}
+
+%--------------------------------------------------------------
+
+% Custom colors
+\definecolor{qlikgreen}{rgb}{0.3,0.6,0.03}
+\definecolor{applegreen}{HTML}{5BC236}
+\definecolor{d3orange}{rgb}{0.96,0.5,0.3}
+%--------------------------------------------------------------
+
+% Code from Christian Feuersänger
+% http://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+% define checkmark
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+% define dashed-line
+\def\adl@drawiv#1#2#3{%
+        \hskip.5\tabcolsep
+        \xleaders#3{#2.5\@tempdimb #1{1}#2.5\@tempdimb}%
+                #2\z@ plus1fil minus1fil\relax
+        \hskip.5\tabcolsep}
+\newcommand{\cdashlinelr}[1]{%
+  \noalign{\vskip\aboverulesep
+          \global\let\@dashdrawstore\adl@draw
+          \global\let\adl@draw\adl@drawiv}
+  \cdashline{#1}
+  \noalign{\global\let\adl@draw\@dashdrawstore
+          \vskip\belowrulesep}}
+%--------------------------------------------------------------

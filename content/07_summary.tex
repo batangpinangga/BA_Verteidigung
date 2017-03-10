@@ -1,10 +1,36 @@
-\section{Zusammenfassung}
+\section{Summary}
 
 \begin{frame}
-	\frametitle{Zusammenfassung}
+	\frametitle{Summary}
 	\begin{itemize}
-		\item Bildung ist gut
-		\item 2-mal täglich
-		\item Regelmäßig anwenden
+		\item Tools follow different strategies: more analytical vs. more visualization
+		\item Tableau
+		\begin{itemize}
+		    \item strength: analytics in focus, good for data reduction, standard interaction techniques
+		    \item weakness: advanced data visualization (ADV)
+		\end{itemize}
+		\item Qlik Sense
+		\begin{itemize}
+		    \item strength: visualization in focus, ADV possible with javascript, first steps in \textit{multi-resolution:} Smart Data Compression, mini chart good for orientation
+		    \item weakness: data reduction, no integration of analytical program possible, only set-expressions
+		\end{itemize}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Summary}
+    \begin{itemize}
+        \item Power BI
+		\begin{itemize}
+		    \item strength: ADV \& data reduction possible by integration of javascript and R
+		    \item weakness: high expenses as programming language is necessary
+		\end{itemize}
+		\item d3.js
+		\begin{itemize}
+		    \item strength: everything possible
+		    \item weakness: programming skills needed
+		\end{itemize}
+		\item All tools lack in \textit{distortion}, \textit{multi-resolution}, \textit{aggregation metaphors}
+		\item Large scale data visualization in \textit{Tableau, Qlik Sense and Power BI} currently not possible
+    \end{itemize}
 \end{frame}

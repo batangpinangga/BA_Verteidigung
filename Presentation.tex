@@ -1,12 +1,16 @@
 \documentclass[nosymbols]{beamer}	% Is better for some Windows user.
 %
+\usepackage{include/input}
+%
 \input{include/docinfo}				% Edit here author informations.
 \input{include/header}
 \input{include/titlepage}
 \input{include/headingsandfooter}
 %
+
 \begin{document}
 %
+
 	\addtocounter{framenumber}{-1}	% Exclude page from pagecounter.
 	\begin{frame}[plain]
 		\titlepage
@@ -14,24 +18,25 @@
 	%
 	%\setcounter{framenumber}{0}
 	\frame{
-		\frametitle{Inhaltsverzeichnis}
+		\frametitle{Outline}
 		\tableofcontents
 	}
 	%
 	\input{content/01_motivation}
-	\input{content/02_goal}
+	%\input{content/02_goal}
 	\input{content/03_intro}
 	\input{content/04_bases}
 	\input{content/05_methods}
 	\input{content/06_mywork}
 	\input{content/07_summary}
-	\input{content/08_outlook}
+%	\input{content/08_outlook}
 	\input{content/references}
 	%
 	\addtocounter{framenumber}{-1}
 	\begin{frame}[plain]
 		
-		\titlepage
+	\titlepage
 	\end{frame}
 %
 \end{document}
+
